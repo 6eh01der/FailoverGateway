@@ -1,0 +1,11 @@
+[Unit]
+Description=Failover Gateway
+After=network-online.target
+Requires=network-online.target
+
+[Timer]
+OnCalendar=*-*-* *:*:0/10
+Persistent=True
+
+[Install]
+WantedBy=timers.target

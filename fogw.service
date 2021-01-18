@@ -1,0 +1,6 @@
+[Unit]
+Description=Failover Gateway
+
+[Service]
+Type=oneshot
+ExecStart=/opt/fogw/fogw.sh
