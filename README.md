@@ -9,3 +9,11 @@ Installation script will create systemd fogw.timer and corresponding oneshot fog
 Default and backup gateway addresses may be changed at any time by fogwcfg.sh script located in /opt/fogw/
 
 uninstall-fogw.sh located in the same place.
+
+Installation:
+
+1) wget https://github.com/IBeholderI/FailoverGateway/files/5830972/fogw.tar.gz
+
+2) tar -zxf fogw.tar.gz
+
+3) ./install-fogw.sh
