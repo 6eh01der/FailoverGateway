@@ -1,4 +1,4 @@
-# Failover Gateway
+# FailoverGateway
 
 Inspired by MikroTik "Check gateway" function https://wiki.mikrotik.com/wiki/Manual:IP/Route and this article https://blog.rapellys.biz/2014/10/18/linux-default-gateway-failover-script/
 
