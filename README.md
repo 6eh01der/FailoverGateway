@@ -12,13 +12,17 @@ uninstall-fogw.sh located in the same place.
 
 Installation:
 
-1) fping required so:
+1) fping required. install-fogw.sh will install it for you but you can do it manually:
 
         in Ubuntu/Debian run:
                 apt-get install fping
+                or
+                apt install fping
                 
         in RedHat/CentOS run:
-                yum install fping or dnf install fping
+                yum install fping
+                or
+                dnf install fping
                 
         in OpenSuse run:
                 zypper install fping
