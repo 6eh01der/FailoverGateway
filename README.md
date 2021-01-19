@@ -19,6 +19,7 @@ Installation:
                 
         in RedHat/CentOS run
                 yum install fping or dnf install fping
+                
         in OpenSuse run
                 zypper install fping
 
