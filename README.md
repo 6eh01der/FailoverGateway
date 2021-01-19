@@ -32,6 +32,6 @@ Installation:
 
 2) wget https://github.com/IBeholderI/FailoverGateway/files/5830972/fogw.tar.gz
 
-3) tar -zxf fogw.tar.gz
+3) tar -pzxf fogw.tar.gz
 
 4) ./install-fogw.sh
