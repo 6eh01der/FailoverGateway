@@ -5,7 +5,7 @@
 #*********************************************************************
 DEF_GW="$1"      # Default Gateway
 BCK_GW="$2"      # Backup Gateway
-PING_TMO="$3"                # Ping timeout in seconds
+PING_TMO="$3"                # Ping timeout in milliseconds
 #*********************************************************************
 
 #Check GW
@@ -17,11 +17,11 @@ then
 fi
 if [ "$CURT_GW" == "$DEF_GW" ]
 then
-        ping -c 2 -W "$PING_TMO" "$DEF_GW" &> /dev/null
+        fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
         PING_DEF_GW=$?
                 if [ "$PING_DEF_GW" != "0" ]
                 then
-                        ping -c 2 -W "$PING_TMO" "$BCK_GW" &> /dev/null
+                        fping -c 2 -t "$PING_TMO" "$BCK_GW" &> /dev/null
                         PING_BCK_GW=$?
                         if [ "$PING_BCK_GW" == "0" ]
                         then
@@ -36,10 +36,10 @@ then
                 fi
 elif [ "$CURT_GW" == "$BCK_GW" ]
 then
-        ping -c 2 -W "$PING_TMO" "$BCK_GW" &> /dev/null
+        fping -c 2 -t "$PING_TMO" "$BCK_GW" &> /dev/null
         PING_BCK_GW=$?
 # With automatic failback to default gateway when it comes up
-        ping -c 2 -W "$PING_TMO" "$DEF_GW" &> /dev/null
+        fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
         PING_DEF_GW=$?
                 if { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" == "0" ]; } || { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" != "0" ]; }
                 then
@@ -55,7 +55,7 @@ then
 : '
                 if [ "$PING_BCK_GW" != "0" ]
                 then
-                        ping -c 2 -W "$PING_TMO" "$DEF_GW" &> /dev/null
+                        fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
                         PING_DEF_GW=$?
                         if [ "$PING_DEF_GW" == "0" ]
                         then
