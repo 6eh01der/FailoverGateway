@@ -12,8 +12,18 @@ uninstall-fogw.sh located in the same place.
 
 Installation:
 
-1) wget https://github.com/IBeholderI/FailoverGateway/files/5830972/fogw.tar.gz
+1) fping required so:
 
-2) tar -zxf fogw.tar.gz
+        in Ubuntu/Debian run
+                apt-get install fping
+                
+        in RedHat/CentOS run
+                yum install fping or dnf install fping
+        in OpenSuse run
+                zypper install fping
 
-3) ./install-fogw.sh
+2) wget https://github.com/IBeholderI/FailoverGateway/files/5830972/fogw.tar.gz
+
+3) tar -zxf fogw.tar.gz
+
+4) ./install-fogw.sh
