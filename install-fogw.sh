@@ -1,5 +1,29 @@
 #!/bin/bash
-
+which yum
+if [ $? == "0" ]
+then 
+        yum install -y fping
+fi
+which dnf
+if [ $? == "0" ]
+then
+        dnf install -y fping
+fi
+which apt-get
+if [ $? == "0" ]
+then
+        apt-get install -y fping
+fi
+which apt
+if [ $? == "0" ]
+then
+        apt install -y fping
+fi
+which zypper
+if [ $? == "0" ]
+then
+        zypper install -y fping
+fi
 mkdir /opt/fogw
 cp fogw.sh fogwcfg.sh uninstall-fogw.sh /opt/fogw/
 cp fogw.service /etc/systemd/system/
