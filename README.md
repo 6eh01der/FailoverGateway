@@ -14,13 +14,13 @@ Installation:
 
 1) fping required so:
 
-        in Ubuntu/Debian run
+        in Ubuntu/Debian run:
                 apt-get install fping
                 
-        in RedHat/CentOS run
+        in RedHat/CentOS run:
                 yum install fping or dnf install fping
                 
-        in OpenSuse run
+        in OpenSuse run:
                 zypper install fping
 
 2) wget https://github.com/IBeholderI/FailoverGateway/files/5830972/fogw.tar.gz
