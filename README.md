@@ -34,4 +34,10 @@ Installation:
 
 3) tar -pzxf fogw.tar.gz
 
-4) ./install-fogw.sh
+4) Under root
+        
+        ./install-fogw.sh
+        
+   Or under sudo user
+   
+        sudo ./install-fogw.sh
