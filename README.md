@@ -14,19 +14,19 @@ Installation:
 
 1) fping required. install-fogw.sh will install it for you but you can do it manually:
 
-        for Ubuntu/Debian run:
+      for Ubuntu/Debian run:
         
                 apt-get install fping
                 or
                 apt install fping
                 
-        for RedHat/CentOS run:
+      for RedHat/CentOS run:
         
                 yum install fping
                 or
                 dnf install fping
                 
-        for OpenSuse run:
+      for OpenSuse run:
         
                 zypper install fping
 
