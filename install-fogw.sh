@@ -32,9 +32,9 @@ systemctl daemon-reload
 read -p "Enable automatic failback to default gateway when it comes up? (yes/no) " ANSWER
 if [ "$ANSWER" == no ]
 then
-sed -i "41a : '" /opt/fogw/fogw.sh
-sed -i "54a '" /opt/fogw/fogw.sh
-sed -i '57d;73d' /opt/fogw/fogw.sh
+sed -i "36a : '" /opt/fogw/fogw.sh
+sed -i "49a '" /opt/fogw/fogw.sh
+sed -i '52d;65d' /opt/fogw/fogw.sh
 fi
 systemctl enable fogw.timer
 systemctl start fogw.timer
