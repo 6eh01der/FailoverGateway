@@ -17,21 +17,16 @@ then
 fi
 if [ "$CURT_GW" == "$DEF_GW" ]
 then
-        fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
-        PING_DEF_GW=$?
-                if [ "$PING_DEF_GW" != "0" ]
+                if fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
                 then
-                        fping -c 2 -t "$PING_TMO" "$BCK_GW" &> /dev/null
-                        PING_BCK_GW=$?
-                        if [ "$PING_BCK_GW" == "0" ]
+                        if fping -c 2 -t "$PING_TMO" "$BCK_GW" &> /dev/null
                         then
                                 # switching to backup
                                 ip route del default
                                 ip route add default via "$BCK_GW"
                                 echo "Gateway switched to backup with IP \"$BCK_GW\""
-                                        elif [ "$PING_BCK_GW" != "0" ]
-                                        then
-                                                echo "No gateways are reachable"
+                        else
+                                echo "No gateways are reachable"
                         fi
                 fi
 elif [ "$CURT_GW" == "$BCK_GW" ]
@@ -55,16 +50,13 @@ then
 : '
                 if [ "$PING_BCK_GW" != "0" ]
                 then
-                        fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
-                        PING_DEF_GW=$?
-                        if [ "$PING_DEF_GW" == "0" ]
+                        if fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
                         then
                                 # Switching to default
                                 ip route del default
                                 ip route add default via "$DEF_GW"
                                 echo "Gateway switched to Default with IP \"$DEF_GW\""
-                        elif [ "$PING_DEF_GW" != "0" ] && [ "$PING_BCK_GW" != "0" ]
-                        then
+                        else
                                 echo "No gateways available"
                         fi
                 fi
