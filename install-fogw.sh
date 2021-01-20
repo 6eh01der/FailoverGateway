@@ -1,28 +1,26 @@
 #!/bin/bash
-which yum
-if [ $? == "0" ]
-then 
+if ! which fping
+then
+if which yum
+then
         yum install -y fping
 fi
-which dnf
-if [ $? == "0" ]
+if which dnf
 then
         dnf install -y fping
 fi
-which apt-get
-if [ $? == "0" ]
+if which apt-get
 then
         apt-get install -y fping
 fi
-which apt
-if [ $? == "0" ]
+if which apt
 then
         apt install -y fping
 fi
-which zypper
-if [ $? == "0" ]
+if which zypper
 then
         zypper install -y fping
+fi
 fi
 mkdir /opt/fogw
 cp fogw.sh fogwcfg.sh uninstall-fogw.sh /opt/fogw/
@@ -32,7 +30,7 @@ read -p "Set gateways and ping timeout separated by spaces. First - default gate
 sed -i "6s/$/ $ARGUMENTS/" /etc/systemd/system/fogw.service
 systemctl daemon-reload
 read -p "Enable automatic failback to default gateway when it comes up? (yes/no) " ANSWER
-if [ $ANSWER == no ]
+if [ "$ANSWER" == no ]
 then
 sed -i "41a : '" /opt/fogw/fogw.sh
 sed -i "54a '" /opt/fogw/fogw.sh
