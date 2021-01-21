@@ -1,11 +1,14 @@
 #!/bin/bash
 
+#Version: 1.1.2
+#https://github.com/IBeholderI/FailoverGateway/blob/main/install-fogw.sh
 #*********************************************************************
 #       Configuration
 #*********************************************************************
 DEF_GW="$1"      # Default Gateway
 BCK_GW="$2"      # Backup Gateway
-PING_TMO="$3"                # Ping timeout in milliseconds
+PING_TMO="$3"    # Ping timeout in milliseconds
+AUTO_FB="$4"     # Auto failback on/off
 #*********************************************************************
 
 #Check GW
@@ -33,7 +36,9 @@ elif [ "$CURT_GW" == "$BCK_GW" ]
 then
         fping -c 2 -t "$PING_TMO" "$BCK_GW" &> /dev/null
         PING_BCK_GW=$?
+case $AUTO_FB in
 # With automatic failback to default gateway when it comes up
+yes)
         fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
         PING_DEF_GW=$?
                 if { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" == "0" ]; } || { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" != "0" ]; }
@@ -46,8 +51,9 @@ then
                                 then
                                         echo "No gateways are reachable"
                 fi
+;;
 # Without automatic failback to default gateway
-: '
+no)
                 if [ "$PING_BCK_GW" != "0" ]
                 then
                         if fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
@@ -60,5 +66,6 @@ then
                                 echo "No gateways available"
                         fi
                 fi
-'
+;;
+esac
 fi
