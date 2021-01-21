@@ -1,5 +1,5 @@
 [Unit]
-Description=Failover Gateway
+Description=fogw
 
 [Service]
 Type=oneshot
