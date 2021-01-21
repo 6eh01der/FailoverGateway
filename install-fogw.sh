@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #Version: 1.1.2
 #https://github.com/IBeholderI/FailoverGateway/blob/main/install-fogw.sh
 if ! which fping
