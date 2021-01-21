@@ -26,15 +26,8 @@ mkdir /opt/fogw
 cp fogw.sh fogwcfg.sh uninstall-fogw.sh /opt/fogw/
 cp fogw.service /etc/systemd/system/
 cp fogw.timer /usr/lib/systemd/system/
-read -p "Set gateways and ping timeout separated by spaces. First - default gateway, second - backup gateway, third - timeout in milliseconds like 500(default value),(for example: 192.168.1.1 192.168.1.2 700): " ARGUMENTS
+read -p "Set gateways, ping timeout and auto failback on/off separated by spaces. First - default gateway, second - backup gateway, third - timeout in milliseconds like 700, fourth - auto failback on/off,(for example: 192.168.1.1 192.168.1.2 700 on): " ARGUMENTS
 sed -i "6s/$/ $ARGUMENTS/" /etc/systemd/system/fogw.service
 systemctl daemon-reload
-read -p "Enable automatic failback to default gateway when it comes up? (yes/no) " ANSWER
-if [ "$ANSWER" == no ]
-then
-sed -i "36a : '" /opt/fogw/fogw.sh
-sed -i "49a '" /opt/fogw/fogw.sh
-sed -i '52d;65d' /opt/fogw/fogw.sh
-fi
 systemctl enable fogw.timer
 systemctl start fogw.timer
