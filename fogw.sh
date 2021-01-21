@@ -38,7 +38,7 @@ then
         PING_BCK_GW=$?
 case $AUTO_FB in
 # With automatic failback to default gateway when it comes up
-yes)
+on)
         fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
         PING_DEF_GW=$?
                 if { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" == "0" ]; } || { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" != "0" ]; }
@@ -53,7 +53,7 @@ yes)
                 fi
 ;;
 # Without automatic failback to default gateway
-no)
+off)
                 if [ "$PING_BCK_GW" != "0" ]
                 then
                         if fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
