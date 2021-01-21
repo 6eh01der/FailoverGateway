@@ -68,4 +68,7 @@ off)
                 fi
 ;;
 esac
+elif [ "$CURT_GW" != "$DEF_GW" ] && [ "$CURT_GW" != "$BCK_GW" ]
+then
+echo "fogw configured gateways are different then currently used. Current default gateway must be empty or the same as default or backup gateway placed in fogw config or maybe fogw gateways config are wrong."
 fi
