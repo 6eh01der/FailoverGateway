@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Version: 1.1.2
-#https://github.com/IBeholderI/FailoverGateway/blob/main/install-fogw.sh
+#https://github.com/IBeholderI/FailoverGateway/blob/main/fogw.sh
 #*********************************************************************
 #       Configuration
 #*********************************************************************
