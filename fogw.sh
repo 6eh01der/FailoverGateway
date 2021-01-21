@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Version: 1.1.2
-#https://github.com/IBeholderI/FailoverGateway/blob/main/fogw.sh
+#https://github.com/IBeholderI/FailoverGateway/blob/main/install-fogw.sh
 #*********************************************************************
 #       Configuration
 #*********************************************************************
@@ -20,7 +20,7 @@ then
 fi
 if [ "$CURT_GW" == "$DEF_GW" ]
 then
-                if fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
+                if ! fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
                 then
                         if fping -c 2 -t "$PING_TMO" "$BCK_GW" &> /dev/null
                         then
