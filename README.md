@@ -4,7 +4,7 @@ Inspired by MikroTik "Check gateway" function https://wiki.mikrotik.com/wiki/Man
 
 For every 10 seconds there will be checking default and backup gateways availability by ping. There may be only failover between gateways or additionally failback to default gateway by it's avalability.
 
-Installation script will create systemd fogw.timer and corresponding oneshot fogw.service for executing fogw.sh script from /opt/fogw/ .
+Installation script will place service, config and uninstall scripts to /opt/fogw/, create systemd oneshot fogw.service and corresponding systemd fogw.timer for executing fogw.sh script every 10 seconds.
 
 Default and backup gateway addresses may be changed at any time by fogwcfg.sh script located in /opt/fogw/
 
