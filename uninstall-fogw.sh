@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Version: 1.1.2
+#Version: 1.1.3
 #https://github.com/IBeholderI/FailoverGateway/blob/main/uninstall-fogw.sh
 
 systemctl disable fogw.timer
