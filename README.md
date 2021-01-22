@@ -30,7 +30,7 @@ Installation:
         
                 zypper install fping
 
-2) wget https://github.com/IBeholderI/FailoverGateway/releases/download/1.1/fogw.tar.gz
+2) wget https://github.com/IBeholderI/FailoverGateway/releases/download/1.1.3/fogw-1.1.3.tar.gz
 
 3) tar -zxf fogw-1.1.3.tar.gz
 
