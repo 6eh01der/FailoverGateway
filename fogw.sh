@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#Version: 1.1.2
-#https://github.com/IBeholderI/FailoverGateway/blob/main/install-fogw.sh
+#Version: 1.1.3
+#https://github.com/IBeholderI/FailoverGateway/blob/main/fogw.sh
 #*********************************************************************
 #       Configuration
 #*********************************************************************
@@ -28,8 +28,10 @@ then
                                 ip route del default
                                 ip route add default via "$BCK_GW"
                                 echo "Gateway switched to backup with IP \"$BCK_GW\""
+                                exit 0
                         else
                                 echo "No gateways are reachable"
+                                exit 1
                         fi
                 fi
 elif [ "$CURT_GW" == "$BCK_GW" ]
@@ -47,9 +49,11 @@ on)
                         ip route del default
                         ip route add default via "$DEF_GW"
                         echo "Gateway switched to default with IP \"$DEF_GW\""
+                        exit 0
                                 elif [ "$PING_DEF_GW" != "0" ] && [ "$PING_BCK_GW" != "0" ]
                                 then
                                         echo "No gateways are reachable"
+                                        exit 1
                 fi
 ;;
 # Without automatic failback to default gateway
@@ -62,8 +66,10 @@ off)
                                 ip route del default
                                 ip route add default via "$DEF_GW"
                                 echo "Gateway switched to Default with IP \"$DEF_GW\""
+                                exit 0
                         else
                                 echo "No gateways available"
+                                exit 1
                         fi
                 fi
 ;;
@@ -71,4 +77,5 @@ esac
 elif [ "$CURT_GW" != "$DEF_GW" ] && [ "$CURT_GW" != "$BCK_GW" ]
 then
 echo "fogw configured gateways are different then currently used. Current default gateway must be empty or the same as default or backup gateway placed in fogw config or maybe fogw gateways config are wrong."
+exit 1
 fi
