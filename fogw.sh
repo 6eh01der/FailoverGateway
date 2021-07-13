@@ -50,10 +50,10 @@ on)
                         ip route add default via "$DEF_GW"
                         echo "Gateway switched to default with IP \"$DEF_GW\""
                         exit 0
-                                elif [ "$PING_DEF_GW" != "0" ] && [ "$PING_BCK_GW" != "0" ]
-                                then
-                                        echo "No gateways are reachable"
-                                        exit 1
+                elif [ "$PING_BCK_GW" != "0" ]
+                then
+                        echo "No gateways are reachable"
+                        exit 1
                 fi
 ;;
 # Without automatic failback to default gateway
