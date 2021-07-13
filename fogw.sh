@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Version: 1.1.4
+#Version: 1.1.5
 #https://github.com/IBeholderI/FailoverGateway/blob/main/fogw.sh
 #*********************************************************************
 #       Configuration
