@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Version: 1.1.3
+#Version: 1.1.4
 #https://github.com/IBeholderI/FailoverGateway/blob/main/fogw.sh
 #*********************************************************************
 #       Configuration
@@ -43,7 +43,7 @@ on)
         PING_BCK_GW=$?
         fping -c 2 -t "$PING_TMO" "$DEF_GW" &> /dev/null
         PING_DEF_GW=$?
-                if { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" == "0" ]; } || { [ "$PING_DEF_GW" == "0" ] && [ "$PING_BCK_GW" != "0" ]; }
+                if [ "$PING_DEF_GW" == "0" ]
                 then
                         # switching to default
                         ip route del default
@@ -68,7 +68,7 @@ off)
                                 echo "Gateway switched to Default with IP \"$DEF_GW\""
                                 exit 0
                         else
-                                echo "No gateways available"
+                                echo "No gateways are reachable"
                                 exit 1
                         fi
                 fi
