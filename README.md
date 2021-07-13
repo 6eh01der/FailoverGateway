@@ -30,9 +30,9 @@ fping required. install-fogw.sh will install it for you but also you can do it m
         
                 zypper install fping
 
-2) wget https://github.com/6eh01der/FailoverGateway/archive/refs/tags/1.1.4.tar.gz
+2) wget https://github.com/6eh01der/FailoverGateway/archive/refs/tags/1.1.6.tar.gz
 
-3) tar -zxf FailoverGateway-1.1.4.tar.gz
+3) tar -zxf FailoverGateway-1.1.6.tar.gz
 
 4) Under root
         
